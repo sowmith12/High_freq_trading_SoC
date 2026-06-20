@@ -1,0 +1,14 @@
+runs/
+results/
+logs/
+*.gds
+*.def
+*.lef
+*.spef
+*.sdf
+*.vcd
+*.fst
+*.wlf
+__pycache__/
+*.pyc
+.sim_build/
