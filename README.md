@@ -161,21 +161,11 @@ hft_soc/
 
 Built with **OpenLane v1.0.2** targeting **SKY130A** (`sky130_fd_sc_hd` standard cell library), via the dockerized flow:
 
-```bash
-docker run --rm -v $PWD:/openlane -v $PWD/designs:/openlane/install \
-  -v ~/.ciel:/home/<user>/.ciel -e PDK_ROOT=~/.ciel -e PDK=sky130A \
-  --user 1000:1000 -ti ghcr.io/the-openroad-project/openlane:<tag>-amd64
-./flow.tcl -design hft_soc
-```
 
 Key `config.json` settings: `CLOCK_PERIOD` 10 ns, `FP_CORE_UTIL` 40%, `PL_TARGET_DENSITY` 0.45, linting disabled (`RUN_LINTER: false`).
 
 **Last known-good run** (`RUN_2026.06.19_12.59.33`): full flow completed successfully — synthesis through GDSII streamout, zero DRC violations (both Magic and KLayout, with matching XOR diff), LVS and ERC clean. Outstanding warnings at the typical corner, not yet resolved:
 
-- Max slew, max fanout, and max capacitance violations (`signoff/31-rcx_sta.checks.rpt`)
-- Hold violations (`signoff/31-rcx_sta.min.rpt`)
-
-These are normal first-pass findings before a sizing/buffering ECO pass — `PL_RESIZER_HOLD_SLACK_MARGIN`/`GLB_RESIZER_HOLD_SLACK_MARGIN` are already set to chase hold, but further iteration is needed before this is tapeout-clean.
 
 ## Known limitations / things to verify before relying on this
 
