@@ -9,7 +9,7 @@ Book-building, signal generation, and risk checks run in combinational/pipelined
 
 ## Architecture
 
-![HFT SoC Datapath](docs/images/datapath.jpeg)
+![HFT SoC Datapath](datapath.jpeg)
 
 ## Pipeline overview
 
