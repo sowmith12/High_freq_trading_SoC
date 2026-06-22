@@ -6,6 +6,11 @@ A hardware-only, single-chip front-office trading pipeline: it ingests NASDAQ IT
 
 Book-building, signal generation, and risk checks run in combinational/pipelined logic instead of software, so the tick-to-trade loop (market-data byte in → order byte out) completes in a handful of clock cycles instead of microseconds of OS/NIC/software latency.
 
+
+## Architecture
+
+![HFT SoC Datapath](docs/images/datapath.jpeg)
+
 ## Pipeline overview
 
 ```
